@@ -579,40 +579,6 @@ main {
   padding: 26px 24px 64px;
 }
 
-.intro {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin: 18px 0 34px;
-}
-
-.intro article {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-top: 4px solid var(--accent);
-  border-radius: 8px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-}
-
-.intro article:nth-child(2) {
-  border-top-color: var(--accent-2);
-}
-
-.intro article:nth-child(3) {
-  border-top-color: var(--accent-3);
-}
-
-.intro h2 {
-  margin: 0 0 8px;
-  font-size: 1.05rem;
-}
-
-.intro p {
-  margin: 0;
-  color: var(--muted);
-}
-
 .report-section {
   padding: 36px 0;
   border-top: 1px solid var(--line);
@@ -783,8 +749,7 @@ details[open] summary {
 }
 
 @media (max-width: 880px) {
-  .hero,
-  .intro {
+  .hero {
     grid-template-columns: 1fr;
   }
 
@@ -1201,21 +1166,6 @@ def write_site(data):
   </header>
 
   <main>
-    <div class="intro">
-      <article>
-        <h2>Che dati usa?</h2>
-        <p>Usa solo voti e recensioni. Watchlist, like, commenti, righe eliminate e liste non entrano nell'analisi.</p>
-      </article>
-      <article>
-        <h2>Come abbina i film?</h2>
-        <p>I film vengono riconosciuti usando titolo ripulito e anno, così lo stesso titolo può essere confrontato tra profili diversi.</p>
-      </article>
-      <article>
-        <h2>Come va letto?</h2>
-        <p>I numeri descrivono abitudini e somiglianze in questi export. Non sono una classifica oggettiva del gusto.</p>
-      </article>
-    </div>
-
     {"".join(sections)}
 
     <section id="pair-details" class="report-section">
