@@ -1,0 +1,13 @@
+[project]
+name = "letterboxd-friends-analysis"
+version = "0.1.0"
+description = "Simple Letterboxd ratings and reviews analysis for a friend group."
+requires-python = ">=3.9"
+dependencies = [
+    "nbformat>=5.10",
+    "numpy>=2.0",
+    "pandas>=2.2",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,3391 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analisi gusti Letterboxd</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero">
+      <div>
+        <h1>Analisi gusti Letterboxd</h1>
+        <p>Un report semplice sui profili Letterboxd di beap2, bigguccisosa777, faustozampa, will22. Usa solo voti e recensioni, poi traduce i numeri in una lettura comprensibile.</p>
+      </div>
+      <aside class="hero-panel" aria-label="Totali del report">
+        <h2>Totali del report</h2>
+        <ul>
+          <li><span>Utenti</span><strong>4</strong></li>
+<li><span>Voti letti</span><strong>975</strong></li>
+<li><span>Recensioni lette</span><strong>84</strong></li>
+<li><span>Film votati da 3+ persone</span><strong>63</strong></li>
+        </ul>
+        <div class="taste-bars">
+          <h3>Voto medio</h3>
+          <ul>
+            <li><span>will22</span><i style="--value: 79.2%"></i><strong>3.96</strong></li>
+<li><span>faustozampa</span><i style="--value: 70.0%"></i><strong>3.50</strong></li>
+<li><span>beap2</span><i style="--value: 69.5%"></i><strong>3.48</strong></li>
+<li><span>bigguccisosa777</span><i style="--value: 67.9%"></i><strong>3.39</strong></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <nav class="nav" aria-label="Sezioni del report">
+      <a href="#user-summary">Utenti</a>
+      <a href="#personality">Stile di voto</a>
+      <a href="#pairwise">Coppie</a>
+      <a href="#pair-details">Dettagli coppie</a>
+      <a href="#group-metrics">Gruppo</a>
+      <a href="#consensus-favorites">Preferiti</a>
+      <a href="#divisive">Divisivi</a>
+      <a href="#outliers">Fuori dal gruppo</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="intro">
+      <article>
+        <h2>Che dati usa?</h2>
+        <p>Usa solo voti e recensioni. Watchlist, like, commenti, righe eliminate e liste non entrano nell'analisi.</p>
+      </article>
+      <article>
+        <h2>Come abbina i film?</h2>
+        <p>I film vengono riconosciuti usando titolo ripulito e anno, così lo stesso titolo può essere confrontato tra profili diversi.</p>
+      </article>
+      <article>
+        <h2>Come va letto?</h2>
+        <p>I numeri descrivono abitudini e somiglianze in questi export. Non sono una classifica oggettiva del gusto.</p>
+      </article>
+    </div>
+
+    
+    <section id="user-summary" class="report-section">
+      <div class="section-copy">
+        
+        <h2>Riassunto utenti</h2>
+        <p>Questa tabella mostra il profilo base di ogni persona: quanti film ha votato o recensito, qual è il suo voto medio e come distribuisce le stelle.</p>
+        <p class="note">Serve per capire subito chi usa Letterboxd di più, chi scrive di più e chi tende a votare più alto o più basso.</p>
+        <div class="interpretation"><h3>Interpretazione</h3><p>bigguccisosa777 è il profilo più ricco: compaiono 402 film considerati. will22 è invece quello che scrive più recensioni, con 48 film recensiti.</p>
+<p>Sul tono dei voti, will22 è il più generoso con una media di 3.96/5, mentre bigguccisosa777 usa voti leggermente più bassi, con 3.39/5. In pratica, quando confronti due utenti, tieni conto che non tutti usano le stelle con la stessa severità.</p>
+<p>La distribuzione conferma questa differenza: per will22 il voto più frequente è 4.5 stelle (24.48% dei suoi voti), mentre per bigguccisosa777 il voto più frequente è 3.5 stelle (21.64%). bigguccisosa777, avendo molti più film nel dataset, pesa soprattutto come archivio ampio di confronti.</p>
+<p>Questa tabella va letta come taratura personale: una stella in più data da un utente molto severo non significa la stessa cosa di una stella in più data da un utente più generoso. Per questo le sezioni successive confrontano sempre anche le differenze tra persone, non solo le medie assolute.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>utente</th>
+      <th>film considerati</th>
+      <th>film votati</th>
+      <th>film recensiti</th>
+      <th>voto medio</th>
+      <th>voto centrale</th>
+      <th>% 0.5</th>
+      <th>% 1.0</th>
+      <th>% 1.5</th>
+      <th>% 2.0</th>
+      <th>% 2.5</th>
+      <th>% 3.0</th>
+      <th>% 3.5</th>
+      <th>% 4.0</th>
+      <th>% 4.5</th>
+      <th>% 5.0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>beap2</td>
+      <td>204</td>
+      <td>204</td>
+      <td>7</td>
+      <td>3.48</td>
+      <td>3.50</td>
+      <td>0.00</td>
+      <td>2.45</td>
+      <td>0.98</td>
+      <td>8.82</td>
+      <td>5.39</td>
+      <td>22.55</td>
+      <td>13.24</td>
+      <td>27.94</td>
+      <td>12.75</td>
+      <td>5.88</td>
+    </tr>
+    <tr>
+      <td>bigguccisosa777</td>
+      <td>402</td>
+      <td>402</td>
+      <td>3</td>
+      <td>3.39</td>
+      <td>3.50</td>
+      <td>1.24</td>
+      <td>1.99</td>
+      <td>3.48</td>
+      <td>5.22</td>
+      <td>9.45</td>
+      <td>19.40</td>
+      <td>21.64</td>
+      <td>19.65</td>
+      <td>9.20</td>
+      <td>8.71</td>
+    </tr>
+    <tr>
+      <td>faustozampa</td>
+      <td>130</td>
+      <td>128</td>
+      <td>26</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>0.78</td>
+      <td>3.91</td>
+      <td>4.69</td>
+      <td>5.47</td>
+      <td>9.38</td>
+      <td>11.72</td>
+      <td>17.19</td>
+      <td>17.97</td>
+      <td>14.84</td>
+      <td>14.06</td>
+    </tr>
+    <tr>
+      <td>will22</td>
+      <td>273</td>
+      <td>241</td>
+      <td>48</td>
+      <td>3.96</td>
+      <td>4.00</td>
+      <td>0.83</td>
+      <td>1.24</td>
+      <td>1.24</td>
+      <td>2.90</td>
+      <td>4.56</td>
+      <td>7.88</td>
+      <td>16.18</td>
+      <td>18.67</td>
+      <td>24.48</td>
+      <td>21.99</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+    <section id="personality" class="report-section">
+      <div class="section-copy">
+        
+        <h2>Stile di voto</h2>
+        <p>Queste etichette descrivono come una persona usa le stelle, non se ha gusti migliori o peggiori. Generoso significa voti più alti, severo più voti bassi, polarizzato più salti tra alto e basso, moderato voti più stabili.</p>
+        <p class="note">Le percentuali sono semplici quote dei voti di quella persona. Per esempio, 4.5 o 5 stelle indica quanto spesso mette voti da favorito.</p>
+        <div class="interpretation"><h3>Interpretazione</h3><p>will22 tende ad amare di più ciò che guarda: quasi 46.47% dei suoi voti sono a 4.5 o 5 stelle.</p>
+<p>faustozampa risulta il più severo per quota di voti bassi, mentre faustozampa è anche il più variabile: non resta sempre nella zona media, ma si sposta più spesso tra entusiasmo e bocciatura. beap2 è il più regolare, quindi i suoi voti cambiano meno da un film all&#x27;altro.</p>
+<p>Tradotto: will22 usa spesso la parte alta della scala, quindi un suo 4.5 o 5 segnala entusiasmo ma non è rarissimo. Al contrario, i voti bassi di faustozampa contano molto perché arrivano da un profilo che separa di più ciò che funziona da ciò che non funziona.</p>
+<p>beap2 ha una variabilità di 0.91: tende a stare più vicino al centro e rende più interessanti i casi in cui esce dalla sua zona abituale. faustozampa, con variabilità 1.13, è il profilo più utile per trovare film amati o rifiutati con decisione.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>indicazione</th>
+      <th>utente</th>
+      <th>voto medio</th>
+      <th>variabilità dei voti</th>
+      <th>% voti 4.5 o 5</th>
+      <th>% voti bassi</th>
+      <th>% voti medi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>più generoso</td>
+      <td>will22</td>
+      <td>3.96</td>
+      <td>0.96</td>
+      <td>46.47</td>
+      <td>10.79</td>
+      <td>24.07</td>
+    </tr>
+    <tr>
+      <td>più severo</td>
+      <td>faustozampa</td>
+      <td>3.50</td>
+      <td>1.13</td>
+      <td>28.91</td>
+      <td>24.22</td>
+      <td>28.91</td>
+    </tr>
+    <tr>
+      <td>più polarizzato</td>
+      <td>faustozampa</td>
+      <td>3.50</td>
+      <td>1.13</td>
+      <td>28.91</td>
+      <td>24.22</td>
+      <td>28.91</td>
+    </tr>
+    <tr>
+      <td>più moderato</td>
+      <td>beap2</td>
+      <td>3.48</td>
+      <td>0.91</td>
+      <td>18.63</td>
+      <td>17.65</td>
+      <td>35.78</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+    <section id="pairwise" class="report-section">
+      <div class="section-copy">
+        
+        <h2>Somiglianza tra coppie</h2>
+        <p>Qui ogni coppia viene confrontata solo sui film che entrambe le persone hanno votato. Una differenza media più bassa significa gusti più vicini.</p>
+        <p class="note">Il numero di film in comune conta: una coppia con tanti film condivisi è più facile da interpretare.</p>
+        <div class="interpretation"><h3>Interpretazione</h3><p>La coppia più vicina è bigguccisosa777 / will22: su 80 film in comune, la differenza media è solo 0.57 stelle. Vuol dire che spesso vedono gli stessi film in modo simile.</p>
+<p>La coppia più distante è faustozampa / will22, con 1.27 stelle di differenza media. La coppia statisticamente più solida da leggere è bigguccisosa777 / will22, perché ha 80 film in comune.</p>
+<p>Il dato più intuitivo è la quota entro mezza stella: bigguccisosa777 / will22 ci arriva nel 71.25% dei film comuni, mentre faustozampa / will22 si ferma al 38.46%. Questo racconta meglio della media quanto spesso due persone escono dalla sala con una sensazione simile.</p>
+<p>I grandi disaccordi sono rari nella coppia più vicina (2) e molto più presenti nella coppia più distante (10). Quindi la distanza non è solo una questione di mezzo voto: in alcuni casi cambia proprio il giudizio sul film.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>coppia</th>
+      <th>film votati da entrambi</th>
+      <th>differenza media</th>
+      <th>differenza centrale</th>
+      <th>% voti identici</th>
+      <th>% entro mezza stella</th>
+      <th>grandi disaccordi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bigguccisosa777 / will22</td>
+      <td>80</td>
+      <td>0.57</td>
+      <td>0.50</td>
+      <td>31.25</td>
+      <td>71.25</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>beap2 / faustozampa</td>
+      <td>65</td>
+      <td>0.69</td>
+      <td>0.50</td>
+      <td>23.08</td>
+      <td>61.54</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>beap2 / will22</td>
+      <td>59</td>
+      <td>0.71</td>
+      <td>0.50</td>
+      <td>20.34</td>
+      <td>52.54</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>beap2 / bigguccisosa777</td>
+      <td>59</td>
+      <td>0.75</td>
+      <td>0.50</td>
+      <td>16.95</td>
+      <td>52.54</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>bigguccisosa777 / faustozampa</td>
+      <td>46</td>
+      <td>1.01</td>
+      <td>0.50</td>
+      <td>19.57</td>
+      <td>54.35</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>faustozampa / will22</td>
+      <td>39</td>
+      <td>1.27</td>
+      <td>1.00</td>
+      <td>12.82</td>
+      <td>38.46</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+
+    <section id="pair-details" class="report-section">
+      <div class="section-copy">
+        <h2>Dettaglio delle coppie</h2>
+        <p>Apri una coppia per vedere i film dietro al punteggio di somiglianza. Qui si capisce dove due persone coincidono, dove si separano e quali preferiti o bocciature hanno in comune.</p>
+      </div>
+      <div class="pair-details">
+        
+            <details>
+              <summary>beap2 / bigguccisosa777</summary>
+              <div class="detail-grid">
+                <div class="pair-interpretation">
+                  <h3>Interpretazione</h3>
+                  <p>Questa coppia è abbastanza allineata: su 59 film in comune, la distanza media è 0.75 stelle. I disaccordi più evidenti sono su American Beauty (1999), Django Unchained (2012) e Dune: Part Two (2024).</p>
+                  <p>Nel 52.54% dei casi i due voti sono uguali o distano al massimo mezza stella. Questo è il dato più leggibile: più è alto, più i due profili reagiscono in modo simile agli stessi film.</p>
+                  <p>Ci sono 10 voti identici, 6 preferiti condivisi e 4 bocciature condivise. Le coincidenze più immediate sono Arrival (2016), Il Divo (2008) e Il Sorpasso (1962); i preferiti condivisi più chiari sono Il Sorpasso (1962), In the Mood for Love (2000) e Marty Supreme (2025); le bocciature condivise sono Parthenope (2024), Barbie (2023) e Saltburn (2023).</p>
+                  <p>I grandi disaccordi sono 4. Quando compaiono, non indicano solo una piccola differenza di severità: segnalano film su cui le due persone hanno probabilmente letto qualità, difetti o aspettative in modo proprio diverso.</p>
+                </div>
+                <div>
+                  <h3>Disaccordi più grandi</h3>
+                  <p class="note">Sono i film in comune dove i due voti sono più lontani.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>bigguccisosa777</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>American Beauty (1999)</td>
+      <td>4.50</td>
+      <td>2.50</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Django Unchained (2012)</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Dune: Part Two (2024)</td>
+      <td>5.00</td>
+      <td>3.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Project Hail Mary (2026)</td>
+      <td>2.50</td>
+      <td>4.50</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Ex Machina (2015)</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>La La Land (2016)</td>
+      <td>5.00</td>
+      <td>3.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>The Grand Budapest Hotel (2014)</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>The King's Speech (2010)</td>
+      <td>3.50</td>
+      <td>2.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>Anora (2024)</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Voti identici</h3>
+                  <p class="note">Sono i film a cui entrambe le persone hanno dato lo stesso voto.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>bigguccisosa777</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arrival (2016)</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Il Divo (2008)</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Il Sorpasso (1962)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Marty Supreme (2025)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>No Other Choice (2025)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>One Battle After Another (2025)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Parthenope (2024)</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Hand of God (2021)</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Up (2009)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Preferiti condivisi</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film almeno 4.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>bigguccisosa777</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Il Sorpasso (1962)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Marty Supreme (2025)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>One Battle After Another (2025)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Blade Runner (1982)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Eyes Wide Shut (1999)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Bocciature condivise</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film al massimo 2.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>bigguccisosa777</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Parthenope (2024)</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Barbie (2023)</td>
+      <td>2.00</td>
+      <td>1.50</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Saltburn (2023)</td>
+      <td>2.50</td>
+      <td>2.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Wonka (2023)</td>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+              </div>
+            </details>
+            
+            <details>
+              <summary>beap2 / faustozampa</summary>
+              <div class="detail-grid">
+                <div class="pair-interpretation">
+                  <h3>Interpretazione</h3>
+                  <p>Questa coppia è abbastanza allineata: su 65 film in comune, la distanza media è 0.69 stelle. I disaccordi più evidenti sono su American Beauty (1999), Sentimental Value (2025) e 2001: A Space Odyssey (1968).</p>
+                  <p>Nel 61.54% dei casi i due voti sono uguali o distano al massimo mezza stella. Questo è il dato più leggibile: più è alto, più i due profili reagiscono in modo simile agli stessi film.</p>
+                  <p>Ci sono 15 voti identici, 11 preferiti condivisi e 2 bocciature condivise. Le coincidenze più immediate sono (500) Days of Summer (2009), Black Swan (2010) e Catch Me If You Can (2002); i preferiti condivisi più chiari sono Catch Me If You Can (2002), Forrest Gump (1994) e Gone Girl (2014); le bocciature condivise sono Project Hail Mary (2026) e Wonka (2023).</p>
+                  <p>I grandi disaccordi sono 5. Quando compaiono, non indicano solo una piccola differenza di severità: segnalano film su cui le due persone hanno probabilmente letto qualità, difetti o aspettative in modo proprio diverso.</p>
+                </div>
+                <div>
+                  <h3>Disaccordi più grandi</h3>
+                  <p class="note">Sono i film in comune dove i due voti sono più lontani.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>faustozampa</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>American Beauty (1999)</td>
+      <td>4.50</td>
+      <td>2.00</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Sentimental Value (2025)</td>
+      <td>3.50</td>
+      <td>1.00</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Eyes Wide Shut (1999)</td>
+      <td>4.50</td>
+      <td>2.50</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>La Haine (1995)</td>
+      <td>5.00</td>
+      <td>3.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Conclave (2024)</td>
+      <td>3.00</td>
+      <td>1.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Little Women (2019)</td>
+      <td>3.50</td>
+      <td>2.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Wonka (2023)</td>
+      <td>2.00</td>
+      <td>0.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Anora (2024)</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>Blade Runner (1982)</td>
+      <td>4.50</td>
+      <td>3.50</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Voti identici</h3>
+                  <p class="note">Sono i film a cui entrambe le persone hanno dato lo stesso voto.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>faustozampa</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(500) Days of Summer (2009)</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Black Swan (2010)</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Catch Me If You Can (2002)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Challengers (2024)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Decision to Leave (2022)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Eternal Sunshine of the Spotless Mind (2004)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Forrest Gump (1994)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Gone Girl (2014)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Good Will Hunting (1997)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Preferiti condivisi</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film almeno 4.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>faustozampa</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Catch Me If You Can (2002)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Forrest Gump (1994)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Gone Girl (2014)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>La La Land (2016)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Prisoners (2013)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Social Network (2010)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Interstellar (2014)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Parasite (2019)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Uncut Gems (2019)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Bocciature condivise</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film al massimo 2.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>faustozampa</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Project Hail Mary (2026)</td>
+      <td>2.50</td>
+      <td>1.50</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>Wonka (2023)</td>
+      <td>2.00</td>
+      <td>0.50</td>
+      <td>1.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+              </div>
+            </details>
+            
+            <details>
+              <summary>beap2 / will22</summary>
+              <div class="detail-grid">
+                <div class="pair-interpretation">
+                  <h3>Interpretazione</h3>
+                  <p>Questa coppia è abbastanza allineata: su 59 film in comune, la distanza media è 0.71 stelle. I disaccordi più evidenti sono su Big Fish (2003), Raging Bull (1980) e The Fabelmans (2022).</p>
+                  <p>Nel 52.54% dei casi i due voti sono uguali o distano al massimo mezza stella. Questo è il dato più leggibile: più è alto, più i due profili reagiscono in modo simile agli stessi film.</p>
+                  <p>Ci sono 12 voti identici, 12 preferiti condivisi e 3 bocciature condivise. Le coincidenze più immediate sono Annie Hall (1977), Barbie (2023) e Gran Torino (2008); i preferiti condivisi più chiari sono Annie Hall (1977), Il Sorpasso (1962) e In the Mood for Love (2000); le bocciature condivise sono Barbie (2023), Dunkirk (2017) e The Notebook (2004).</p>
+                  <p>I grandi disaccordi sono 3. Quando compaiono, non indicano solo una piccola differenza di severità: segnalano film su cui le due persone hanno probabilmente letto qualità, difetti o aspettative in modo proprio diverso.</p>
+                </div>
+                <div>
+                  <h3>Disaccordi più grandi</h3>
+                  <p class="note">Sono i film in comune dove i due voti sono più lontani.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Big Fish (2003)</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Raging Bull (1980)</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>The Fabelmans (2022)</td>
+      <td>1.50</td>
+      <td>3.50</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Barry Lyndon (1975)</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Challengers (2024)</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Kill Bill: Vol. 2 (2004)</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>A Brighter Tomorrow (2023)</td>
+      <td>2.50</td>
+      <td>3.50</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>Captain Fantastic (2016)</td>
+      <td>2.50</td>
+      <td>3.50</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>Compagni di scuola (1988)</td>
+      <td>3.00</td>
+      <td>4.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Voti identici</h3>
+                  <p class="note">Sono i film a cui entrambe le persone hanno dato lo stesso voto.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Annie Hall (1977)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Barbie (2023)</td>
+      <td>2.00</td>
+      <td>2.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Gran Torino (2008)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Il Sorpasso (1962)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Inception (2010)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Oldboy (2003)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Shutter Island (2010)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Godfather (1972)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Godfather Part II (1974)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Preferiti condivisi</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film almeno 4.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Annie Hall (1977)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Il Sorpasso (1962)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Oldboy (2003)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Godfather (1972)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Godfather Part II (1974)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Blade Runner (1982)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>La La Land (2016)</td>
+      <td>5.00</td>
+      <td>4.50</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Mulholland Drive (2001)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Once Upon a Time in America (1984)</td>
+      <td>5.00</td>
+      <td>4.50</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Bocciature condivise</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film al massimo 2.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>beap2</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Barbie (2023)</td>
+      <td>2.00</td>
+      <td>2.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Dunkirk (2017)</td>
+      <td>2.00</td>
+      <td>2.50</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>The Notebook (2004)</td>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+              </div>
+            </details>
+            
+            <details>
+              <summary>bigguccisosa777 / faustozampa</summary>
+              <div class="detail-grid">
+                <div class="pair-interpretation">
+                  <h3>Interpretazione</h3>
+                  <p>Questa coppia è mista: su 46 film in comune, la distanza media è 1.01 stelle. I disaccordi più evidenti sono su 2001: A Space Odyssey (1968), Project Hail Mary (2026) e Ex Machina (2015).</p>
+                  <p>Nel 54.35% dei casi i due voti sono uguali o distano al massimo mezza stella. Questo è il dato più leggibile: più è alto, più i due profili reagiscono in modo simile agli stessi film.</p>
+                  <p>Ci sono 9 voti identici, 7 preferiti condivisi e 3 bocciature condivise. Le coincidenze più immediate sono Anora (2024), In the Mood for Love (2000) e Memento (2000); i preferiti condivisi più chiari sono In the Mood for Love (2000), Nocturnal Animals (2016) e Se7en (1995); le bocciature condivise sono American Beauty (1999), Wonka (2023) e Conclave (2024).</p>
+                  <p>I grandi disaccordi sono 9. Quando compaiono, non indicano solo una piccola differenza di severità: segnalano film su cui le due persone hanno probabilmente letto qualità, difetti o aspettative in modo proprio diverso.</p>
+                </div>
+                <div>
+                  <h3>Disaccordi più grandi</h3>
+                  <p class="note">Sono i film in comune dove i due voti sono più lontani.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>bigguccisosa777</th>
+      <th>faustozampa</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>5.00</td>
+      <td>2.00</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>Project Hail Mary (2026)</td>
+      <td>4.50</td>
+      <td>1.50</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>Ex Machina (2015)</td>
+      <td>2.50</td>
+      <td>5.00</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Eyes Wide Shut (1999)</td>
+      <td>5.00</td>
+      <td>2.50</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Mystic River (2003)</td>
+      <td>3.50</td>
+      <td>1.00</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Nosferatu (2024)</td>
+      <td>4.00</td>
+      <td>1.50</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>The Substance (2024)</td>
+      <td>4.50</td>
+      <td>2.00</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Vertigo (1958)</td>
+      <td>5.00</td>
+      <td>2.50</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Demolition (2015)</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Barry Lyndon (1975)</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>1.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Voti identici</h3>
+                  <p class="note">Sono i film a cui entrambe le persone hanno dato lo stesso voto.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>bigguccisosa777</th>
+      <th>faustozampa</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Anora (2024)</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Memento (2000)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Mulholland Drive (2001)</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Nocturnal Animals (2016)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Oldboy (2003)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Se7en (1995)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Game (1997)</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Wolf of Wall Street (2013)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Preferiti condivisi</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film almeno 4.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>bigguccisosa777</th>
+      <th>faustozampa</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Nocturnal Animals (2016)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Se7en (1995)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Wolf of Wall Street (2013)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Funny Games (2007)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>No Country for Old Men (2007)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>The Grand Budapest Hotel (2014)</td>
+      <td>5.00</td>
+      <td>4.50</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Bocciature condivise</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film al massimo 2.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>bigguccisosa777</th>
+      <th>faustozampa</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>American Beauty (1999)</td>
+      <td>2.50</td>
+      <td>2.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Wonka (2023)</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>Conclave (2024)</td>
+      <td>2.50</td>
+      <td>1.50</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+              </div>
+            </details>
+            
+            <details>
+              <summary>bigguccisosa777 / will22</summary>
+              <div class="detail-grid">
+                <div class="pair-interpretation">
+                  <h3>Interpretazione</h3>
+                  <p>Questa coppia è molto allineata: su 80 film in comune, la distanza media è 0.57 stelle. I disaccordi più evidenti sono su The Lobster (2015), Fargo (1996) e Big Fish (2003).</p>
+                  <p>Nel 71.25% dei casi i due voti sono uguali o distano al massimo mezza stella. Questo è il dato più leggibile: più è alto, più i due profili reagiscono in modo simile agli stessi film.</p>
+                  <p>Ci sono 25 voti identici, 22 preferiti condivisi e 4 bocciature condivise. Le coincidenze più immediate sono 2001: A Space Odyssey (1968), An American in Rome (1954) e Asteroid City (2023); i preferiti condivisi più chiari sono 2001: A Space Odyssey (1968), Back to the Future (1985) e Blade Runner (1982); le bocciature condivise sono Cosmopolis (2012), Wuthering Heights (2026) e Barbie (2023).</p>
+                  <p>I grandi disaccordi sono 2. Quando compaiono, non indicano solo una piccola differenza di severità: segnalano film su cui le due persone hanno probabilmente letto qualità, difetti o aspettative in modo proprio diverso.</p>
+                </div>
+                <div>
+                  <h3>Disaccordi più grandi</h3>
+                  <p class="note">Sono i film in comune dove i due voti sono più lontani.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>bigguccisosa777</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The Lobster (2015)</td>
+      <td>2.00</td>
+      <td>4.50</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Fargo (1996)</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Big Fish (2003)</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Boogie Nights (1997)</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Hannah and Her Sisters (1986)</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Howl's Moving Castle (2004)</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Mulholland Drive (2001)</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Mystic River (2003)</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Rear Window (1954)</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Spider-Man: Across the Spider-Verse (2023)</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>1.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Voti identici</h3>
+                  <p class="note">Sono i film a cui entrambe le persone hanno dato lo stesso voto.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>bigguccisosa777</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>An American in Rome (1954)</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Asteroid City (2023)</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Back to the Future (1985)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Blade Runner (1982)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Compagni di scuola (1988)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Cosmopolis (2012)</td>
+      <td>2.00</td>
+      <td>2.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Disclosure Day (2026)</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>GoodFellas (1990)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Preferiti condivisi</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film almeno 4.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>bigguccisosa777</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Back to the Future (1985)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Blade Runner (1982)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>GoodFellas (1990)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Il Sorpasso (1962)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>L.A. Confidential (1997)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Lost in Translation (2003)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>The Substance (2024)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Vertigo (1958)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Bocciature condivise</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film al massimo 2.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>bigguccisosa777</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cosmopolis (2012)</td>
+      <td>2.00</td>
+      <td>2.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Wuthering Heights (2026)</td>
+      <td>1.50</td>
+      <td>1.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Barbie (2023)</td>
+      <td>1.50</td>
+      <td>2.00</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>F1 (2025)</td>
+      <td>2.00</td>
+      <td>2.50</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+              </div>
+            </details>
+            
+            <details>
+              <summary>faustozampa / will22</summary>
+              <div class="detail-grid">
+                <div class="pair-interpretation">
+                  <h3>Interpretazione</h3>
+                  <p>Questa coppia è molto distante: su 39 film in comune, la distanza media è 1.27 stelle. I disaccordi più evidenti sono su Apocalypse Now (1979), Mystic River (2003) e The Dark Knight (2008).</p>
+                  <p>Nel 38.46% dei casi i due voti sono uguali o distano al massimo mezza stella. Questo è il dato più leggibile: più è alto, più i due profili reagiscono in modo simile agli stessi film.</p>
+                  <p>Ci sono 5 voti identici, 5 preferiti condivisi e 0 bocciature condivise. Le coincidenze più immediate sono In the Mood for Love (2000), Inception (2010) e Kill Bill: Vol. 1 (2003); i preferiti condivisi più chiari sono In the Mood for Love (2000), No Country for Old Men (2007) e Parasite (2019); le bocciature condivise sono nessun titolo.</p>
+                  <p>I grandi disaccordi sono 10. Quando compaiono, non indicano solo una piccola differenza di severità: segnalano film su cui le due persone hanno probabilmente letto qualità, difetti o aspettative in modo proprio diverso.</p>
+                </div>
+                <div>
+                  <h3>Disaccordi più grandi</h3>
+                  <p class="note">Sono i film in comune dove i due voti sono più lontani.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>faustozampa</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apocalypse Now (1979)</td>
+      <td>1.00</td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Mystic River (2003)</td>
+      <td>1.00</td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>The Dark Knight (2008)</td>
+      <td>1.00</td>
+      <td>4.50</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>2.00</td>
+      <td>5.00</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>The Substance (2024)</td>
+      <td>2.00</td>
+      <td>4.50</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Vertigo (1958)</td>
+      <td>2.50</td>
+      <td>5.00</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Barry Lyndon (1975)</td>
+      <td>2.50</td>
+      <td>4.50</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Kill Bill: Vol. 2 (2004)</td>
+      <td>2.50</td>
+      <td>4.50</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Nosferatu (2024)</td>
+      <td>1.50</td>
+      <td>3.50</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Scarface (1983)</td>
+      <td>2.00</td>
+      <td>4.00</td>
+      <td>2.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Voti identici</h3>
+                  <p class="note">Sono i film a cui entrambe le persone hanno dato lo stesso voto.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>faustozampa</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Inception (2010)</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Kill Bill: Vol. 1 (2003)</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>No Country for Old Men (2007)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Parasite (2019)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Preferiti condivisi</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film almeno 4.5 stelle.</p>
+                  <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>faustozampa</th>
+      <th>will22</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>No Country for Old Men (2007)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>Parasite (2019)</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>La La Land (2016)</td>
+      <td>5.00</td>
+      <td>4.50</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>The Truman Show (1998)</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table></div>
+                </div>
+                <div>
+                  <h3>Bocciature condivise</h3>
+                  <p class="note">Entrambe le persone hanno dato a questi film al massimo 2.5 stelle.</p>
+                  <div class="table-wrap"><p class="empty">Nessuna riga trovata per questa sezione.</p></div>
+                </div>
+              </div>
+            </details>
+            
+      </div>
+    </section>
+
+    
+    <section id="group-metrics" class="report-section">
+      <div class="section-copy">
+        
+        <h2>Lettura del gruppo</h2>
+        <p>Questa parte include solo film votati da almeno tre persone. La media dice quanto il gruppo tende ad apprezzare un film; la distanza min-max dice quanto i voti sono lontani tra loro.</p>
+        <p class="note">Una distanza di 0.5 vuol dire quasi accordo. Una distanza di 3.0 vuol dire gruppo molto diviso.</p>
+        <div class="interpretation"><h3>Interpretazione</h3><p>Ci sono 63 film votati da almeno 3 persone. I titoli con media più alta sono No Country for Old Men (2007), Parasite (2019) e Forrest Gump (1994), mentre quelli con media più bassa sono Wonka (2023), Barbie (2023) e Conclave (2024).</p>
+<p>Questa sezione serve soprattutto per capire il gusto del gruppo: non guarda una singola amicizia, ma dove il gruppo converge o si separa.</p>
+<p>12 film sono stati votati da tutti e quattro, quindi sono i più solidi per parlare di gusto collettivo. In 14 film la distanza tra voto più basso e più alto resta entro mezza stella: lì il gruppo è praticamente allineato.</p>
+<p>Al contrario, 15 film hanno almeno 2 stelle di distanza tra chi li ha apprezzati di più e chi li ha apprezzati di meno. Quelli sono i titoli più utili per capire le differenze vere tra i profili, perché non dipendono solo dal fatto che qualcuno voti un po&#x27; più alto in generale.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>persone che hanno votato</th>
+      <th>media del gruppo</th>
+      <th>distanza min-max</th>
+      <th>dispersione</th>
+      <th>beap2</th>
+      <th>bigguccisosa777</th>
+      <th>faustozampa</th>
+      <th>will22</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>4</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>1.22</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td>2.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Barry Lyndon (1975)</td>
+      <td>4</td>
+      <td>3.50</td>
+      <td>2.00</td>
+      <td>0.79</td>
+      <td>3.00</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Blade Runner (1982)</td>
+      <td>4</td>
+      <td>4.50</td>
+      <td>1.50</td>
+      <td>0.61</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>3.50</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Challengers (2024)</td>
+      <td>4</td>
+      <td>3.50</td>
+      <td>1.50</td>
+      <td>0.61</td>
+      <td>4.00</td>
+      <td>3.50</td>
+      <td>4.00</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Decision to Leave (2022)</td>
+      <td>4</td>
+      <td>4.38</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4</td>
+      <td>4.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>La La Land (2016)</td>
+      <td>4</td>
+      <td>4.50</td>
+      <td>1.50</td>
+      <td>0.61</td>
+      <td>5.00</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Mulholland Drive (2001)</td>
+      <td>4</td>
+      <td>4.12</td>
+      <td>1.50</td>
+      <td>0.65</td>
+      <td>4.50</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Oldboy (2003)</td>
+      <td>4</td>
+      <td>4.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Oppenheimer (2023)</td>
+      <td>4</td>
+      <td>3.38</td>
+      <td>1.50</td>
+      <td>0.65</td>
+      <td>3.00</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>The Grand Budapest Hotel (2014)</td>
+      <td>4</td>
+      <td>4.25</td>
+      <td>1.50</td>
+      <td>0.56</td>
+      <td>3.50</td>
+      <td>5.00</td>
+      <td>4.50</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>The Wolf of Wall Street (2013)</td>
+      <td>4</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>American Beauty (1999)</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>2.50</td>
+      <td>1.08</td>
+      <td>4.50</td>
+      <td>2.50</td>
+      <td>2.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Anora (2024)</td>
+      <td>3</td>
+      <td>3.33</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Arrival (2016)</td>
+      <td>3</td>
+      <td>2.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>2.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Barbie (2023)</td>
+      <td>3</td>
+      <td>1.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>2.00</td>
+      <td>1.50</td>
+      <td></td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Big Fish (2003)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>2.00</td>
+      <td>0.85</td>
+      <td>3.00</td>
+      <td>3.50</td>
+      <td></td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Compagni di scuola (1988)</td>
+      <td>3</td>
+      <td>3.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>3.00</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Conclave (2024)</td>
+      <td>3</td>
+      <td>2.33</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>3.00</td>
+      <td>2.50</td>
+      <td>1.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Demolition (2015)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>0.82</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Django Unchained (2012)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>0.82</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Dune: Part Two (2024)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>0.82</td>
+      <td>5.00</td>
+      <td>3.00</td>
+      <td></td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Ex Machina (2015)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>2.50</td>
+      <td>1.03</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>5.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Eyes Wide Shut (1999)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>1.08</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>2.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Fantastic Mr. Fox (2009)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Fight Club (1999)</td>
+      <td>3</td>
+      <td>3.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>3.00</td>
+      <td></td>
+      <td>3.50</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Forrest Gump (1994)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>5.00</td>
+      <td></td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Gone Girl (2014)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>4.50</td>
+      <td>3.50</td>
+      <td>4.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Good Time (2017)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>GoodFellas (1990)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Hannah and Her Sisters (1986)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>4.00</td>
+      <td>3.50</td>
+      <td></td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Il Sorpasso (1962)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td></td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Inception (2010)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Inglourious Basterds (2009)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>4.00</td>
+      <td></td>
+      <td>3.50</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Interstellar (2014)</td>
+      <td>3</td>
+      <td>4.33</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>4.50</td>
+      <td></td>
+      <td>5.00</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <td>Joker (2019)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.50</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <td>Kill Bill: Vol. 1 (2003)</td>
+      <td>3</td>
+      <td>3.33</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>4.00</td>
+      <td></td>
+      <td>3.00</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>Kill Bill: Vol. 2 (2004)</td>
+      <td>3</td>
+      <td>3.33</td>
+      <td>2.00</td>
+      <td>0.85</td>
+      <td>3.00</td>
+      <td></td>
+      <td>2.50</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Marty Supreme (2025)</td>
+      <td>3</td>
+      <td>4.33</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Memento (2000)</td>
+      <td>3</td>
+      <td>3.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>3.00</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Mystic River (2003)</td>
+      <td>3</td>
+      <td>3.17</td>
+      <td>4.00</td>
+      <td>1.65</td>
+      <td></td>
+      <td>3.50</td>
+      <td>1.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>No Country for Old Men (2007)</td>
+      <td>3</td>
+      <td>4.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td></td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>No Other Choice (2025)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>3.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nosferatu (2024)</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>2.50</td>
+      <td>1.08</td>
+      <td></td>
+      <td>4.00</td>
+      <td>1.50</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <td>Parasite (2019)</td>
+      <td>3</td>
+      <td>4.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>4.50</td>
+      <td></td>
+      <td>5.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Prisoners (2013)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>5.00</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Project Hail Mary (2026)</td>
+      <td>3</td>
+      <td>2.83</td>
+      <td>3.00</td>
+      <td>1.25</td>
+      <td>2.50</td>
+      <td>4.50</td>
+      <td>1.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Psycho (1960)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td></td>
+      <td>4.00</td>
+      <td>3.50</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Pulp Fiction (1994)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Punch-Drunk Love (2002)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>3.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Se7en (1995)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td></td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Shutter Island (2010)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.50</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Sinners (2025)</td>
+      <td>3</td>
+      <td>3.33</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td></td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <td>The Drama (2026)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>The Menu (2022)</td>
+      <td>3</td>
+      <td>3.17</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td></td>
+      <td>3.00</td>
+      <td>3.50</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>The Social Network (2010)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>5.00</td>
+      <td></td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>The Substance (2024)</td>
+      <td>3</td>
+      <td>3.67</td>
+      <td>2.50</td>
+      <td>1.18</td>
+      <td></td>
+      <td>4.50</td>
+      <td>2.00</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>The Truman Show (1998)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.50</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Vertigo (1958)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>2.50</td>
+      <td>1.18</td>
+      <td></td>
+      <td>5.00</td>
+      <td>2.50</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>We All Loved Each Other So Much (1974)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Witness for the Prosecution (1957)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td></td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Wonka (2023)</td>
+      <td>3</td>
+      <td>1.17</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Zodiac (2007)</td>
+      <td>3</td>
+      <td>3.67</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>3.50</td>
+      <td>4.00</td>
+      <td>3.50</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+    <section id="consensus-favorites" class="report-section">
+      <div class="section-copy">
+        
+        <h2>Preferiti condivisi</h2>
+        <p>Sono i film che il gruppo ha apprezzato in modo abbastanza compatto: media almeno 4 stelle e al massimo 1 stella tra il voto più basso e quello più alto.</p>
+        <p class="note">In parole semplici: voto alto e poco disaccordo.</p>
+        <div class="interpretation"><h3>Interpretazione</h3><p>I preferiti condivisi più chiari sono No Country for Old Men (2007), Parasite (2019) e Forrest Gump (1994).</p>
+<p>In totale ci sono 23 film che il gruppo tende a trattare come preferiti condivisi: media alta e poca distanza tra i voti.</p>
+<p>Il punto interessante è che questi non sono solo film con una media alta: sono film in cui nessuno si stacca troppo dagli altri. Per questo sono i titoli migliori da proporre come gusto comune del gruppo, non semplicemente come preferiti di una singola persona.</p>
+<p>Se devi scegliere un film che abbia buone probabilità di piacere a tutti, questa è la sezione più utile: premia i film solidi e trasversali, non quelli che fanno impazzire una persona e lasciano tiepidi gli altri.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>persone che hanno votato</th>
+      <th>media del gruppo</th>
+      <th>distanza min-max</th>
+      <th>dispersione</th>
+      <th>beap2</th>
+      <th>bigguccisosa777</th>
+      <th>faustozampa</th>
+      <th>will22</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>No Country for Old Men (2007)</td>
+      <td>3</td>
+      <td>4.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td></td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Parasite (2019)</td>
+      <td>3</td>
+      <td>4.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>4.50</td>
+      <td></td>
+      <td>5.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Forrest Gump (1994)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>5.00</td>
+      <td></td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>GoodFellas (1990)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Prisoners (2013)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>5.00</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Se7en (1995)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td></td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>The Social Network (2010)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>5.00</td>
+      <td></td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>We All Loved Each Other So Much (1974)</td>
+      <td>3</td>
+      <td>4.67</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>In the Mood for Love (2000)</td>
+      <td>4</td>
+      <td>4.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Il Sorpasso (1962)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td></td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>The Wolf of Wall Street (2013)</td>
+      <td>4</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td>5.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Fantastic Mr. Fox (2009)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Pulp Fiction (1994)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>The Truman Show (1998)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.50</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Witness for the Prosecution (1957)</td>
+      <td>3</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td></td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Decision to Leave (2022)</td>
+      <td>4</td>
+      <td>4.38</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Marty Supreme (2025)</td>
+      <td>3</td>
+      <td>4.33</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>4.50</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oldboy (2003)</td>
+      <td>4</td>
+      <td>4.25</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>4.00</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Shutter Island (2010)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.50</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Gone Girl (2014)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>1.00</td>
+      <td>0.47</td>
+      <td>4.50</td>
+      <td>3.50</td>
+      <td>4.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Inception (2010)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Joker (2019)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.00</td>
+      <td></td>
+      <td>4.50</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <td>Punch-Drunk Love (2002)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>1.00</td>
+      <td>0.41</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>3.50</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+    <section id="consensus-dislikes" class="report-section">
+      <div class="section-copy">
+        
+        <h2>Bocciature condivise</h2>
+        <p>Sono i film che il gruppo non ha valutato molto bene, sempre con un certo accordo: media massimo 3 stelle e al massimo 1 stella tra voto più basso e più alto.</p>
+        <p class="note">In parole semplici: voto basso e poco disaccordo.</p>
+        <div class="interpretation"><h3>Interpretazione</h3><p>I titoli bocciati con più accordo sono Barbie (2023) e Arrival (2016).</p>
+<p>In totale ci sono 2 film con giudizio basso e abbastanza condiviso. Se il numero è piccolo, significa che il gruppo litiga più facilmente sui film deboli che sui film amati.</p>
+<p>Questa lista è più severa di una semplice classifica dei voti bassi: un film entra qui solo se il gruppo lo valuta poco e senza grandi eccezioni. Se un titolo manca, può voler dire che qualcuno lo ha difeso abbastanza da rompere il consenso negativo.</p>
+<p>In pratica, queste sono le bocciature più condivisibili del dataset: non dicono che il film sia oggettivamente brutto, ma che dentro questo gruppo non ha trovato un vero sostenitore forte.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>persone che hanno votato</th>
+      <th>media del gruppo</th>
+      <th>distanza min-max</th>
+      <th>dispersione</th>
+      <th>beap2</th>
+      <th>bigguccisosa777</th>
+      <th>faustozampa</th>
+      <th>will22</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Barbie (2023)</td>
+      <td>3</td>
+      <td>1.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>2.00</td>
+      <td>1.50</td>
+      <td></td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Arrival (2016)</td>
+      <td>3</td>
+      <td>2.83</td>
+      <td>0.50</td>
+      <td>0.24</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>2.50</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+    <section id="divisive" class="report-section">
+      <div class="section-copy">
+        
+        <h2>Film più divisivi</h2>
+        <p>Sono i film su cui il gruppo è meno d&#x27;accordo. La tabella mette prima i titoli con maggiore distanza tra voto basso e voto alto.</p>
+        <p class="note">Qui vedi i primi 20 casi: bastano per capire dove nascono le differenze più forti.</p>
+        <div class="interpretation"><h3>Interpretazione</h3><p>Il film più divisivo è Mystic River (2003): tra il voto più basso e quello più alto ci sono 4.00 stelle di distanza.</p>
+<p>Qui conviene leggere i primi titoli come conversazioni potenzialmente interessanti: non sono necessariamente brutti o belli, sono quelli su cui il gruppo non è d&#x27;accordo.</p>
+<p>Nel caso principale, i voti sono: bigguccisosa777 3.50, faustozampa 1.00, will22 5.00. Questo fa capire subito se la divisione nasce da una persona isolata o da due blocchi più equilibrati.</p>
+<p>Questa è probabilmente la sezione più interessante per discutere: i film divisivi rivelano differenze di sensibilità, aspettative e tolleranza verso generi o stili specifici molto più delle classifiche dei preferiti.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>persone che hanno votato</th>
+      <th>media del gruppo</th>
+      <th>distanza min-max</th>
+      <th>dispersione</th>
+      <th>beap2</th>
+      <th>bigguccisosa777</th>
+      <th>faustozampa</th>
+      <th>will22</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mystic River (2003)</td>
+      <td>3</td>
+      <td>3.17</td>
+      <td>4.00</td>
+      <td>1.65</td>
+      <td></td>
+      <td>3.50</td>
+      <td>1.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Project Hail Mary (2026)</td>
+      <td>3</td>
+      <td>2.83</td>
+      <td>3.00</td>
+      <td>1.25</td>
+      <td>2.50</td>
+      <td>4.50</td>
+      <td>1.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>4</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>1.22</td>
+      <td>4.00</td>
+      <td>5.00</td>
+      <td>2.00</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>The Substance (2024)</td>
+      <td>3</td>
+      <td>3.67</td>
+      <td>2.50</td>
+      <td>1.18</td>
+      <td></td>
+      <td>4.50</td>
+      <td>2.00</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Vertigo (1958)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>2.50</td>
+      <td>1.18</td>
+      <td></td>
+      <td>5.00</td>
+      <td>2.50</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>American Beauty (1999)</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>2.50</td>
+      <td>1.08</td>
+      <td>4.50</td>
+      <td>2.50</td>
+      <td>2.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Eyes Wide Shut (1999)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>1.08</td>
+      <td>4.50</td>
+      <td>5.00</td>
+      <td>2.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nosferatu (2024)</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>2.50</td>
+      <td>1.08</td>
+      <td></td>
+      <td>4.00</td>
+      <td>1.50</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <td>Ex Machina (2015)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>2.50</td>
+      <td>1.03</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>5.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Big Fish (2003)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>2.00</td>
+      <td>0.85</td>
+      <td>3.00</td>
+      <td>3.50</td>
+      <td></td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Kill Bill: Vol. 2 (2004)</td>
+      <td>3</td>
+      <td>3.33</td>
+      <td>2.00</td>
+      <td>0.85</td>
+      <td>3.00</td>
+      <td></td>
+      <td>2.50</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Demolition (2015)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>0.82</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Django Unchained (2012)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>0.82</td>
+      <td>3.00</td>
+      <td>5.00</td>
+      <td></td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Dune: Part Two (2024)</td>
+      <td>3</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>0.82</td>
+      <td>5.00</td>
+      <td>3.00</td>
+      <td></td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Barry Lyndon (1975)</td>
+      <td>4</td>
+      <td>3.50</td>
+      <td>2.00</td>
+      <td>0.79</td>
+      <td>3.00</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>4.50</td>
+    </tr>
+    <tr>
+      <td>Mulholland Drive (2001)</td>
+      <td>4</td>
+      <td>4.12</td>
+      <td>1.50</td>
+      <td>0.65</td>
+      <td>4.50</td>
+      <td>3.50</td>
+      <td>3.50</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>Oppenheimer (2023)</td>
+      <td>4</td>
+      <td>3.38</td>
+      <td>1.50</td>
+      <td>0.65</td>
+      <td>3.00</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Conclave (2024)</td>
+      <td>3</td>
+      <td>2.33</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>3.00</td>
+      <td>2.50</td>
+      <td>1.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Good Time (2017)</td>
+      <td>3</td>
+      <td>3.83</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Hannah and Her Sisters (1986)</td>
+      <td>3</td>
+      <td>4.17</td>
+      <td>1.50</td>
+      <td>0.62</td>
+      <td>4.00</td>
+      <td>3.50</td>
+      <td></td>
+      <td>5.00</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+    <section id="outliers" class="report-section">
+      <div class="section-copy">
+        
+        <h2>Una persona contro il gruppo</h2>
+        <p>Questa sezione trova i casi in cui una persona ha dato un voto distante almeno 1.5 stelle dalla media degli altri.</p>
+        <p class="note">La direzione dice se quella persona ha votato più alto o più basso rispetto agli altri.</p>
+        <div class="interpretation"><h3>Interpretazione</h3><p>Il caso più forte è faustozampa su Mystic River (2003): il suo voto è 1.00, mentre gli altri stanno in media a 4.25.</p>
+<p>Questa sezione non dice chi ha ragione: mostra solo quando una persona ha visto un film in modo molto diverso dagli altri.</p>
+<p>La persona che compare più spesso come fuori dal gruppo è faustozampa, con 10 casi. Nel complesso ci sono 11 valutazioni molto più alte degli altri e 12 valutazioni molto più basse.</p>
+<p>Leggila come una lista di eccezioni personali: se una persona è fuori dal gruppo in alto, quel film probabilmente tocca una sua preferenza specifica; se è fuori dal gruppo in basso, forse quel titolo urta qualcosa che agli altri pesa meno.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>film</th>
+      <th>persona fuori dal gruppo</th>
+      <th>direzione</th>
+      <th>suo voto</th>
+      <th>media degli altri</th>
+      <th>differenza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mystic River (2003)</td>
+      <td>faustozampa</td>
+      <td>più basso</td>
+      <td>1.00</td>
+      <td>4.25</td>
+      <td>-3.25</td>
+    </tr>
+    <tr>
+      <td>Mystic River (2003)</td>
+      <td>will22</td>
+      <td>più alto</td>
+      <td>5.00</td>
+      <td>2.25</td>
+      <td>2.75</td>
+    </tr>
+    <tr>
+      <td>2001: A Space Odyssey (1968)</td>
+      <td>faustozampa</td>
+      <td>più basso</td>
+      <td>2.00</td>
+      <td>4.67</td>
+      <td>-2.67</td>
+    </tr>
+    <tr>
+      <td>Project Hail Mary (2026)</td>
+      <td>bigguccisosa777</td>
+      <td>più alto</td>
+      <td>4.50</td>
+      <td>2.00</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>The Substance (2024)</td>
+      <td>faustozampa</td>
+      <td>più basso</td>
+      <td>2.00</td>
+      <td>4.50</td>
+      <td>-2.50</td>
+    </tr>
+    <tr>
+      <td>Vertigo (1958)</td>
+      <td>faustozampa</td>
+      <td>più basso</td>
+      <td>2.50</td>
+      <td>5.00</td>
+      <td>-2.50</td>
+    </tr>
+    <tr>
+      <td>American Beauty (1999)</td>
+      <td>beap2</td>
+      <td>più alto</td>
+      <td>4.50</td>
+      <td>2.25</td>
+      <td>2.25</td>
+    </tr>
+    <tr>
+      <td>Eyes Wide Shut (1999)</td>
+      <td>faustozampa</td>
+      <td>più basso</td>
+      <td>2.50</td>
+      <td>4.75</td>
+      <td>-2.25</td>
+    </tr>
+    <tr>
+      <td>Nosferatu (2024)</td>
+      <td>faustozampa</td>
+      <td>più basso</td>
+      <td>1.50</td>
+      <td>3.75</td>
+      <td>-2.25</td>
+    </tr>
+    <tr>
+      <td>Ex Machina (2015)</td>
+      <td>bigguccisosa777</td>
+      <td>più basso</td>
+      <td>2.50</td>
+      <td>4.50</td>
+      <td>-2.00</td>
+    </tr>
+    <tr>
+      <td>Project Hail Mary (2026)</td>
+      <td>faustozampa</td>
+      <td>più basso</td>
+      <td>1.50</td>
+      <td>3.50</td>
+      <td>-2.00</td>
+    </tr>
+    <tr>
+      <td>Big Fish (2003)</td>
+      <td>will22</td>
+      <td>più alto</td>
+      <td>5.00</td>
+      <td>3.25</td>
+      <td>1.75</td>
+    </tr>
+    <tr>
+      <td>Ex Machina (2015)</td>
+      <td>faustozampa</td>
+      <td>più alto</td>
+      <td>5.00</td>
+      <td>3.25</td>
+      <td>1.75</td>
+    </tr>
+    <tr>
+      <td>Kill Bill: Vol. 2 (2004)</td>
+      <td>will22</td>
+      <td>più alto</td>
+      <td>4.50</td>
+      <td>2.75</td>
+      <td>1.75</td>
+    </tr>
+    <tr>
+      <td>American Beauty (1999)</td>
+      <td>faustozampa</td>
+      <td>più basso</td>
+      <td>2.00</td>
+      <td>3.50</td>
+      <td>-1.50</td>
+    </tr>
+    <tr>
+      <td>Demolition (2015)</td>
+      <td>bigguccisosa777</td>
+      <td>più basso</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td>-1.50</td>
+    </tr>
+    <tr>
+      <td>Demolition (2015)</td>
+      <td>faustozampa</td>
+      <td>più alto</td>
+      <td>5.00</td>
+      <td>3.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Django Unchained (2012)</td>
+      <td>beap2</td>
+      <td>più basso</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td>-1.50</td>
+    </tr>
+    <tr>
+      <td>Django Unchained (2012)</td>
+      <td>bigguccisosa777</td>
+      <td>più alto</td>
+      <td>5.00</td>
+      <td>3.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Dune: Part Two (2024)</td>
+      <td>beap2</td>
+      <td>più alto</td>
+      <td>5.00</td>
+      <td>3.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Dune: Part Two (2024)</td>
+      <td>bigguccisosa777</td>
+      <td>più basso</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td>-1.50</td>
+    </tr>
+    <tr>
+      <td>Eyes Wide Shut (1999)</td>
+      <td>bigguccisosa777</td>
+      <td>più alto</td>
+      <td>5.00</td>
+      <td>3.50</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>Nosferatu (2024)</td>
+      <td>bigguccisosa777</td>
+      <td>più alto</td>
+      <td>4.00</td>
+      <td>2.50</td>
+      <td>1.50</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer class="site-footer">
+    Creato da faustozamparelli.
+  </footer>
+</body>
+</html>
